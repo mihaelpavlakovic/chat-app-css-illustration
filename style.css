@@ -4,6 +4,7 @@
   --very-dark-desaturated-violet: hsl(271, 36%, 24%);
   --dark-grayish-violet: hsl(270, 7%, 64%);
   --pale-violet: hsl(276, 100%, 81%);
+  --dark-violet: hsl(276, 92%, 69%);
   --light-grayish-violet: hsl(270, 20%, 96%);
   --white: hsl(0, 0%, 100%);
   --light-magenta: hsl(293, 100%, 63%);
@@ -27,7 +28,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 10rem;
+}
+
+.container::before {
+  content: "";
+  height: 80vh;
+  width: 40%;
+  background: linear-gradient(var(--light-magenta), var(--light-violet));
+  border-radius: 0 0 20rem 20rem;
+  position: absolute;
+  top: 0;
+  left: -15%;
+  z-index: -1;
+}
+
+.container::after {
+  content: "";
+  height: 80vh;
+  width: 40%;
+  background: var(--light-grayish-violet);
+  border-radius: 20rem 20rem 0 0;
+  position: absolute;
+  bottom: 0;
+  right: -15%;
+  z-index: -1;
 }
 
 .text-section {
@@ -46,7 +71,6 @@ body {
 
 .phone {
   max-width: 18rem;
-  height: 100%;
   background-color: var(--white);
   border-radius: 1.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -56,6 +80,7 @@ body {
   background-color: var(--light-grayish-violet);
   margin: 0.7rem;
   border-radius: 1.8rem;
+  position: relative;
 }
 
 .phone .phone-container .notch {
@@ -63,8 +88,11 @@ body {
   height: 1.2rem;
   width: 8rem;
   border-radius: 0 0 1rem 1rem;
-  position: absolute;
-  transform: translateX(55%);
+  position: relative;
+  /* left: 0; */
+  /* right: 27%; */
+  margin: 0 auto;
+  /* transform: translateY(20%); */
 }
 
 .phone .phone-container .notification-area {
@@ -75,9 +103,13 @@ body {
   );
   height: 10vh;
   border-radius: 1.8rem 1.8rem 0.5rem 0.5rem;
-  padding: 1rem 1.5rem 0 2rem;
+}
+
+.phone .phone-container .notification-area .flex-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
 }
 
 .phone .phone-container .notification-area .float-left {
@@ -87,17 +119,17 @@ body {
 }
 
 .phone .phone-container .notification-area .float-left h2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--white);
 }
 
 .phone .phone-container .notification-area .float-left p {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--pale-violet);
 }
 
 .phone .phone-container .notification-area .profile-img {
-  width: 2rem;
+  width: 1.7rem;
   border: 0.1rem solid var(--white);
   border-radius: 50%;
 }
@@ -140,7 +172,8 @@ body {
 }
 
 .phone .phone-container .conversation p {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
+  /* max-width: 8rem; */
 }
 
 .phone .phone-container .conversation .text-bubble {
@@ -165,7 +198,7 @@ body {
 
 .phone .phone-container .conversation .reciever {
   background-color: var(--moderate-violet);
-  /* color: var(--desaturated-dark-violet); */
+  color: var(--dark-violet);
 }
 
 .phone .phone-container .conversation .sender {
@@ -191,6 +224,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: hsla(0, 0%, 100%, 0.6);
 }
 
 .left-section {
@@ -223,6 +257,7 @@ body {
   border-radius: 1rem;
   padding: 0 0.3rem;
   color: var(--desaturated-dark-violet);
+  margin-top: 1rem;
 }
 
 .phone .phone-container .conversation .text-area p {
@@ -252,7 +287,14 @@ body {
     text-align: center;
   }
 
-  .phone .phone-container .notch {
-    transform: translateX(40%);
+  .container::before {
+    content: "";
+    height: 70vh;
+    width: 100%;
+    left: -60%;
+  }
+
+  .container::after {
+    display: none;
   }
 }
